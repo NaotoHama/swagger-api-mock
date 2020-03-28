@@ -1,6 +1,11 @@
 version: "3.6"
 services:
-  api:
+  swagger-mock:
     build: .
+    command: swagger project start -m
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     ports:
       - "10010:10010"
+    volumes:
+      - .:/usr/src/app
